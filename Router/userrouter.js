@@ -38,7 +38,7 @@ userrouter.post("/login",async(req,res)=>{
           if(result)
           {
              const token=jwt.sign({foo:"bar"},"masai");
-             res.send({"msg":"Login Successful","token":token,"email":login[0].password})
+             res.send({"msg":"Login Successful","token":token,"email":login[0].email})
           }
           else
           {
