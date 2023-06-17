@@ -30,7 +30,7 @@ userrouter.post("/login",async(req,res)=>{
   try
   {
        const login=await loginsignupmodel.find({email})
-       console.log(login)
+       console.log("jii"+login)
        if(login.length>0)
        {
         bcrypt.compare(password,login[0].password, function(err, result) {
@@ -38,7 +38,7 @@ userrouter.post("/login",async(req,res)=>{
           if(result)
           {
              const token=jwt.sign({foo:"bar"},"masai");
-             res.send({"msg":"Login Successful","token":token})
+             res.send({"msg":"Login Successful","token":token,"email":login[0].password})
           }
           else
           {
